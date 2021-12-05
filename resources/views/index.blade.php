@@ -83,7 +83,7 @@
 
   @section('content')
   <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-  <form action="/confirm" class="h-ard" method="post">
+  <form action="/confirm" class="h-adr" method="post">
     @csrf
     <table>
       <tr>
@@ -95,6 +95,21 @@
           <div class="sample_text">例）山田　　　　　例）太郎</div>
         </td>
       </tr>
+
+      @error('last_name')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
+
+      @error('first_name')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
+
+
+
       <tr>
         <th>性別<span>※</span></th>
         <td>
@@ -110,6 +125,11 @@
           <div class="sample_text">例）text@example.com</div>
         </td>
       </tr>
+      @error('email')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
       <span class="p-country-name" style="display:none;">Japan</span>
       <tr>
         <th>郵便番号<span>※</span></th>
@@ -120,6 +140,11 @@
           <div class="sample_text">例）123-4567</div>
         </td>
       </tr>
+      @error('postcode')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
       <tr>
         <th>住所<span>※</span></th>
         <td>
@@ -128,7 +153,11 @@
           <div class="sample_text">例）東京都渋谷区千駄ヶ谷1-2-3</div>
         </td>
       </tr>
-     
+     @error('address')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
 
       <tr>
         <th>建物名</th>
@@ -145,6 +174,11 @@
           <textarea name="opinion" id="" cols="60" rows="8">{{old('opinion')}}</textarea>
         </td>
       </tr>
+      @error('opinion')
+      <tr>
+        <td>{{$message}}</td>
+      </tr>
+      @enderror
       
     </table>
     <input type="submit" value="確認" class="button submit">

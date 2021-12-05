@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\HTTP\Requests\ClientRequest;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return view('index');
     }
 
-    public function confirm(Request $request) {
+    public function confirm(ClientRequest $request) {
         $last_name = $request -> last_name;
         $first_name = $request -> first_name;
         $gender = $request -> gender;
