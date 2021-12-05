@@ -18,7 +18,7 @@ class CreatePeopleTable extends Migration
             $table->string('last_name',225);
             $table->string('first_name',225);
             $table->char('gender');
-            $table->string('email,225');
+            $table->string('email',225);
             $table->char('postcode',8);
             $table->string('address',255);
             $table->string('building_name',255)->nullable();
