@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HTTP\Requests\ClientRequest;
 use App\Models\Person;
+use App\Http\Requests\SearchRequest;
 
 class CustomerController extends Controller
 {
@@ -50,15 +51,61 @@ class CustomerController extends Controller
         return view('thanks');
     }
 
-    public function find() 
+    public function find(Request $request) 
     {
-        return view('find',['input' => '']);
+        $last_name = $request->input('last_name');
+        $email = $request->input('email');
+
+        $query = Person::query();
+
+        if(!empty($last_name)) {
+            $query->where('last_name','LIKE',"%{$last_name}%");
+        }
+
+        if(!empty($email)) {
+            $query->where('email','LIKE',"%{$email}%");
+        }
+
+        $people = $query->paginate(2);
+        return view('find',compact('people','last_name','email'));
     }
 
-    public function search() {
+    public function search(SearchRequest $request)
+    {
+        // $item = Person::find($request->input);
+        // $param = [
+        //     'item' => $item,
+        //     'input' => $request->input
+        // ];
+        // return view('find',$param);
+        $keyword = $request->input('keyword');
+        $query = Person::where('last_name','LIKE',"%{$keyword}%")->get();
+        
+        return view('find',['query'=>$query]);
+    
+        // $last_name = $request->input('last_name');
+        // $email = $request->input('email');
+
+        // $query = Person::query();
+
+        // if(!empty($last_name)) {
+        //     $query->where('last_name','LIKE',"%{$last_name}%");
+        // }
+
+        // if(!empty($email)) {
+        //     $query->where('email','LIKE',"%{$email}%");
+        // }
+
+        // $people = $query->get();
+
+        
+        // return view ('find', compact('people','last_name','email'));
+    }
+
+    public function seek() {
         // $items=Person::all();
         $items=Person::Paginate(4);
-        return view('search',['items'=>$items]);
+        return view('seek',['items'=>$items]);
     }
 
     // public function search(Request $request) 
@@ -69,13 +116,7 @@ class CustomerController extends Controller
     //         'input' => $request->input
     //     ];
     //     return view('find',$param);
-    //     $item = Person::where('last_name', $request->input)->get();
-    //     $param = [
-    //         'input' => $request->input,
-    //         'item' => $item
-    //     ];
-    //     return view('find', $param);
-
+    //    
     // }
     public function bind(Person $person)
     {

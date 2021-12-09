@@ -17,7 +17,7 @@ public static $rules = array(
         'first_name' => 'required',
         'gender' => 'required',
         'email' => 'required',
-        'postcode' => 'required|new', 
+        // 'postcode' => 'required|new', 
         'postcode' => 'required',
         'address' => 'required',
         'building_name' => 'nullable',
@@ -25,9 +25,9 @@ public static $rules = array(
     );
 
 
-    public function getDetail() {
-
-        $txt = 'ID:'.$this->id. '' . $this->name. '(' . $this->age. '才'.')' .$this->nationality;
+    public function getDetail() 
+    {
+        $txt = $this->id.$this->last_name.$this->first_name.$this->email.$this->opinion;
         return $txt;
 
     }
