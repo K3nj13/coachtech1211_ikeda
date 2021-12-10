@@ -1,10 +1,10 @@
 <style>
  p{
-   margin:400px 0 0 220px;
+   margin:250px 0 0 220px;
  }
 
  button{
-   margin:25px 0 0 290px;
+   margin:30px 0 0 290px;
    width:130px;
    height:35px;
    background:black;

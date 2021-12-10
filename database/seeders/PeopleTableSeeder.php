@@ -52,7 +52,7 @@ class PeopleTableSeeder extends Seeder
         //     'opinion' => 'laravel奥が深い、laravel奥が深い、laravel奥が深い、laravel奥が深い、laravel奥が深い、laravel奥が深い',
         // ];
         // DB::table('People')->insert($param);
-        
+
         // $param = [
         //     'last_name' => '木村',
         //     'first_name' => '四',
@@ -64,9 +64,6 @@ class PeopleTableSeeder extends Seeder
         //     'opinion' => 'laravel勉強、laravel勉強、laravel勉強、laravel勉強、laravel勉強、laravel勉強、laravel勉強、',
         // ];
         // DB::table('People')->insert($param);
-
-        
-
 
     }
 }

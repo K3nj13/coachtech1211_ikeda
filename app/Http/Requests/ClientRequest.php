@@ -37,7 +37,7 @@ class ClientRequest extends FormRequest
         ];
     }
 
-    public function  message() 
+    public function  message()
     {
         return[
             'last_name.required' => '名前を入力してください',
@@ -52,4 +52,3 @@ class ClientRequest extends FormRequest
 
     }
 }
-    
