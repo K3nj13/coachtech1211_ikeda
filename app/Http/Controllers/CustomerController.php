@@ -55,6 +55,7 @@ class CustomerController extends Controller
     {
         $last_name = $request->input('last_name');
         $email = $request->input('email');
+        $created_at = $request->input('created_at');
 
         $query = Person::query();
 
@@ -62,11 +63,15 @@ class CustomerController extends Controller
             $query->where('last_name','LIKE',"%{$last_name}%");
         }
 
+        if(!empty($created_at['from']) && !empty($created_at['until'])) {
+            $query->whereBetween("created_at",[$from,$until]);
+        }
+
         if(!empty($email)) {
             $query->where('email','LIKE',"%{$email}%");
         }
 
-        $people = $query->paginate(2);
+        $people = $query->paginate(3);
         return view('find',compact('people','last_name','email'));
     }
 
@@ -131,6 +136,16 @@ class CustomerController extends Controller
     //     $item=Person::all();
     //     return view('person.binds',['item'=>$item]);
     // }
+
+    public function delete($id)
+    {
+        Person::destroy($id);
+        
+
+        return redirect('find');
+
+    }
+    
 
 
 }

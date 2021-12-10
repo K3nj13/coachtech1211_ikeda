@@ -10,4 +10,5 @@ Route::get('/seek',[CustomerController::class,'seek']);
 Route::get('/find',[CustomerController::class,'find']);
 Route::post('/find',[CustomerController::class,'search']);
 Route::get('/person/{person}', [CustomerController::class, 'bind']);
+Route::post('/delete/{id}', [CustomerController::class, 'delete'])->name('delete');
 // Route::get('/show', [CustomerController::class, 'show']);

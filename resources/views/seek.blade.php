@@ -1,5 +1,7 @@
 @extends('layouts.default')
 <style>
+
+
     th {
       background-color: #289ADC;
       color: white;
@@ -17,6 +19,18 @@
     svg.w-5.h-5 {
     width: 30px;
     height: 30px;
+    }
+
+    .opinion {
+      white-space:nowrap;
+      overflow-x:hidden;
+      text-overflow:ellipsis;
+      width:200px;
+      display:block;
+    }
+
+    .opinion:hover {
+      white-space:normal;
     }
 
 </style>
@@ -45,7 +59,7 @@
     <td>
       {{$item->email}}
     </td>
-    <td>
+    <td class="opinion">
       {{$item->opinion}}
     </td>
   </tr>
