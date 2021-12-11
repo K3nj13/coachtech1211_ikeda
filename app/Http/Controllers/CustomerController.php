@@ -52,16 +52,11 @@ class CustomerController extends Controller
         return view('thanks');
     }
 
-    public function seek()
-    {
-        $items=Person::Paginate(4);
-
-        return view('seek',['items'=>$items]);
-    }
-
     public function find(Request $request)
     {
+
         $last_name = $request->input('last_name');
+        $first_name = $request->input('first_name');
         $email = $request->input('email');
         $created_at = $request->input('created_at');
 
@@ -71,6 +66,10 @@ class CustomerController extends Controller
             $query->where('last_name','LIKE',"%{$last_name}%");
         }
 
+        // if(!empty($first_name)) {
+        //     $query->Where('first_name','LIKE',"%{$first_name}%");
+        // }
+
         if(!empty($created_at['from']) && !empty($created_at['until'])) {
             $query->whereBetween("created_at",[$from,$until]);
         }
@@ -78,6 +77,8 @@ class CustomerController extends Controller
         if(!empty($email)) {
             $query->where('email','LIKE',"%{$email}%");
         }
+
+        if (!empty($params['gender'])) $query->where('gender', $params['gender']);
 
         $people = $query->paginate(3);
         return view('find',compact('people','last_name','email'));
@@ -89,4 +90,11 @@ class CustomerController extends Controller
 
         return redirect('find');
     }
+
+    // public function seek()
+    // {
+    //     $items=Person::Paginate(4);
+
+    //     return view('seek',['items'=>$items]);
+    // }
 }

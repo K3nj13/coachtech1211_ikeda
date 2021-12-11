@@ -73,7 +73,7 @@
     }
 
     .search {
-      margin:10px auto 0;
+      margin:15px auto 0;
       width:100px;
       color:white;
       background:black;
@@ -93,23 +93,24 @@
     }
 
     .table {
-      margin-top:40px;
+      margin-top:20px;
     }
 
     table {
       margin:auto;
       width:90%;
+      border-collapse:collapse;
     }
 
     .tr {
-      border-bottom:2px solid black;
+      border-bottom:1px solid black;
     }
 
     th {
       text-align:left;
       padding: 0 30px;
       font-size:12px;
-      border-bottom:1px solid black;
+      padding-bottom:5px;
     }
 
     .th__opinion {
@@ -159,8 +160,8 @@
     }
 
     svg.w-5.h-5 {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 15px;
     }
 
 </style>
@@ -175,9 +176,9 @@
           お名前<input  class="search__name--name" type="text" name="last_name" value="{{$last_name}}">
         </label>
         <label class="search__radio">性別
-          <input class="search__radio--radio" type="radio" value="全て" checked>全て
-          <input class="search__radio--radio" type="radio" value="男性">男性
-          <input class="search__radio--radio" type="radio" value="女性">女性
+          <input class="search__radio--radio" name="gender" type="radio" value="全て" checked>全て
+          <input class="search__radio--radio" name="gender" type="radio" value="男性">男性
+          <input class="search__radio--radio" name="gender" type="radio" value="女性">女性
         </label>
         <label class="search__date">
           登録日<input class="search__date--date" type="date" name="from" >
