@@ -17,7 +17,6 @@ public static $rules = array(
         'first_name' => 'required',
         'gender' => 'required',
         'email' => 'required',
-        // 'postcode' => 'required|new',
         'postcode' => 'required',
         'address' => 'required',
         'building_name' => 'nullable',

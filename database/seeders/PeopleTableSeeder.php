@@ -16,7 +16,7 @@ class PeopleTableSeeder extends Seeder
     public function run()
     {
 
-        Person::factory()->count(10)->create();
+        Person::factory()->count(15)->create();
         // $param = [
         //     'last_name' => '田中',
         //     'first_name' => '一',

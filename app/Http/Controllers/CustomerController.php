@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HTTP\Requests\ClientRequest;
 use App\Models\Person;
+use App\Rules\ZipCodeRule;
 
 
 class CustomerController extends Controller

@@ -148,7 +148,7 @@
         <tr>
           <th>メールアドレス<span>※</span></th>
           <td>
-            <input type="email" class="input__email" name="email" value="{{old('email')}}">
+            <input type="email" onfocus="eng(this)" class="input__email" name="email" id="foo" value="{{old('email')}}">
             <div class="sample_text">例）text@example.com</div>
             <div class="error">
               @error('email')
@@ -205,5 +205,11 @@
       <input type="submit" value="確認" class="button">
     </form>
   </div>
+  
+ <script>
+  function eng(tbox){
+tbox.style.imeMode="inactive";
+}
+</script>
 
   @endsection  

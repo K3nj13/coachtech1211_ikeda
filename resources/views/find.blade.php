@@ -209,7 +209,7 @@
         @foreach ($people as $person)
         <tr>
           <td>{{$person->id}}</td>
-          <td>{{$person->last_name}}</td>
+          <td>{{$person->last_name}}{{$person->first_name}}</td>
           <td>{{$person->gender}}</td>
           <td>{{$person->email}}</td>
           <td class="opinion">{{$person->opinion}}</td>

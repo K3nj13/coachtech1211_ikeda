@@ -21,8 +21,8 @@ class PersonFactory extends Factory
     public function definition()
     {
         return [
-            'last_name' => $this->faker->name(),
-            'first_name' => $this->faker->name(),
+            'last_name' => $this->faker->lastName(),
+            'first_name' => $this->faker->firstName(),
             'gender' => $this->faker->randomElement($array=['男性','女性']),
             'email' => $this->faker->safeEmail(),
             'postcode' =>$this->faker->regexify('[1-9]{3}-[0-9]{4}'),
