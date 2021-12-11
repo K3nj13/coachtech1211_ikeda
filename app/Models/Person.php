@@ -24,10 +24,4 @@ public static $rules = array(
         'opinion' => 'required',
     );
 
-
-    public function getDetail()
-    {
-        $txt = $this->id.$this->last_name.$this->first_name.$this->email.$this->opinion;
-        return $txt;
-    }
 }

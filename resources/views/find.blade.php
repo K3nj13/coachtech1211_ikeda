@@ -194,6 +194,7 @@
         <button class="reset" type="sumbit" name="reset" >リセット</button>
       </form>
     </div>
+    {{ $people->appends(request()->input())->links() }}
     <div class="table">
       @if($people->count())
       <table>
@@ -221,7 +222,7 @@
         </tr>
         @endforeach
       </table>
-      {{ $people->appends(request()->input())->links() }}
+      
       @else
       <p>見つかりませんでした。</p>
       @endif

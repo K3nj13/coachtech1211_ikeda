@@ -7,21 +7,23 @@
   <title>@yield('title')</title>
   <style>
     body {
-      font-size:16px;
-      margin:5px;
+      /* font-size:16px;
+      margin:5px; */
     }
 
     h1 {
       font-size:25px;
       color:black;
       letter-spacing:3px;
-      margin-left:350px;
-      margin-top:30px;
+      margin:20px auto 0;
+      
+      margin-left:280px;
+      margin-top:20px;
       /* text-align:left; */
     }
 
     .content {
-      margin:10px;
+      /* margin-top:5px; */
     }
 
   </style>
